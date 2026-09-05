@@ -31,11 +31,23 @@ export const PeoplesTrainFeature: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 space-y-4 sm:space-y-5"
           >
-            <div>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="block h-px w-8 origin-left bg-[#E36414]"
+                />
+                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#E36414]">
+                  Landmark Transit
+                </span>
+              </div>
               <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#1C1917] tracking-tight">
                 The People&apos;s Train
               </h2>
-              <p className="mt-1 text-sm text-[#78716C] flex items-center gap-2">
+              <p className="text-sm text-[#78716C] flex items-center gap-2">
                 <span className="font-semibold text-amber-900">Isitimela Sabantu</span>
                 <span>•</span>
                 <span>Durban Station</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
 import { FestivalEdition } from '../types';
+import { Button } from './ui/Button';
 
 interface HeroProps {
   festival: FestivalEdition;
@@ -57,15 +57,9 @@ export const Hero: React.FC<HeroProps> = ({ festival, onExploreCurrent }) => {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 sm:mt-8"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={onExploreCurrent}
-            className="inline-flex items-center gap-2 px-7 sm:px-10 py-3 sm:py-3.5 border border-amber-300/80 bg-[#E36414] hover:bg-[#c9540e] text-white font-semibold text-xs sm:text-sm uppercase tracking-widest transition-colors cursor-pointer"
-          >
-            <span>Explore 2026 Archive</span>
-            <span className="text-base leading-none">›</span>
-          </motion.button>
+          <Button variant="primary" arrow onClick={onExploreCurrent}>
+            Explore 2026 Archive
+          </Button>
         </motion.div>
       </div>
 

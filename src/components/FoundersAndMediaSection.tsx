@@ -1,25 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { SectionHeading } from './ui/SectionHeading';
 
 export const FoundersAndMediaSection: React.FC = () => {
   return (
     <section id="founders-and-media" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FCFAF7] via-[#FFFDF9] to-[#FAF6F0] text-[#1C1917] border-t border-amber-900/10 grain-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="border-b border-amber-900/10 pb-6 sm:pb-8 mb-8 sm:mb-12"
-        >
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C1917] font-display leading-[1.08]">
-            Festival Founders & Media Partners
-          </h2>
-          <p className="mt-2 sm:mt-4 text-sm sm:text-base md:text-lg text-[#57534E] font-normal max-w-3xl leading-relaxed">
-            Honouring the visionaries who founded the Maskandi World Cup, the promoters who staged the 13th edition, and the journalists and cultural influencers who mobilized the historic People’s Train and street parade.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Appreciation"
+          title="Festival Founders & Media Partners"
+          description="Honouring the visionaries who founded the Maskandi World Cup, the promoters who staged the 13th edition, and the journalists and cultural influencers who mobilized the historic People's Train and street parade."
+        />
 
         {/* Founders Grid */}
         <div className="mb-10 sm:mb-16">

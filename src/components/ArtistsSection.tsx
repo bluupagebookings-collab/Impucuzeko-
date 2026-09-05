@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Artist } from '../types';
+import { SectionHeading } from './ui/SectionHeading';
+import { Button } from './ui/Button';
 
 interface ArtistsSectionProps {
   artists: Artist[];
@@ -18,30 +20,16 @@ export const ArtistsSection: React.FC<ArtistsSectionProps> = ({
   return (
     <section id="artists-editorial" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FAF6F0] via-[#FCFAF7] to-[#F5EFEB] text-[#1C1917] border-t border-amber-900/10 grain-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10 pb-4 sm:pb-6 border-b border-amber-900/10"
-        >
-          <div className="space-y-1.5 sm:space-y-2">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C1917] font-display">
-              2026 Stage Masters
-            </h2>
-            <p className="text-xs sm:text-base text-[#57534E] font-normal max-w-xl">
-              The headline artists and traditional acoustic icons who took to the grand stage at Moses Mabhida People&apos;s Park.
-            </p>
-          </div>
-          {onViewAllArtists && (
-            <button
-              onClick={onViewAllArtists}
-              className="text-xs font-semibold text-[#E36414] hover:underline cursor-pointer self-start sm:self-auto shrink-0"
-            >
-              View full festival roster →
-            </button>
-          )}
-        </motion.div>
+        <SectionHeading
+          eyebrow="The Lineup"
+          title="2026 Stage Masters"
+          description="The headline artists and traditional acoustic icons who took to the grand stage at Moses Mabhida People's Park."
+          action={onViewAllArtists ? (
+            <Button variant="link" arrow onClick={onViewAllArtists}>
+              View full festival roster
+            </Button>
+          ) : undefined}
+        />
 
         {/* Clean photo showcase without frames */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6">

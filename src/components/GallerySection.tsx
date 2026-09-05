@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { GalleryImage } from '../types';
+import { SectionHeading } from './ui/SectionHeading';
+import { Button } from './ui/Button';
 
 interface GallerySectionProps {
   images: GalleryImage[];
@@ -35,28 +37,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
   return (
     <section id="gallery-editorial" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FCFAF7] via-[#FFFDF9] to-[#FAF6F0] text-[#1C1917] border-t border-amber-900/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10 pb-4 sm:pb-6 border-b border-amber-900/10"
-        >
-          <div className="space-y-1">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C1917] font-display">
-              Festival Gallery
-            </h2>
-          </div>
-
-          {onViewAllGallery && (
-            <button
-              onClick={onViewAllGallery}
-              className="text-xs font-semibold text-[#E36414] hover:underline self-start md:self-auto cursor-pointer"
-            >
-              Full Archive Photography →
-            </button>
-          )}
-        </motion.div>
+        <SectionHeading
+          eyebrow="Visual Chronicle"
+          title="Festival Gallery"
+          action={onViewAllGallery ? (
+            <Button variant="link" arrow onClick={onViewAllGallery}>
+              Full Archive Photography
+            </Button>
+          ) : undefined}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { FestivalEdition } from '../types';
+import { SectionHeading } from './ui/SectionHeading';
 
 interface LegacyTimelineProps {
   historicalEditions: FestivalEdition[];
@@ -26,22 +27,11 @@ export const LegacyTimeline: React.FC<LegacyTimelineProps> = ({
   return (
     <section id="archive-editorial" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FAF6F0] via-[#FCFAF7] to-[#F5EFEB] text-[#1C1917] border-t border-amber-900/10 grain-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10 pb-4 sm:pb-6 border-b border-amber-900/10"
-        >
-          <div className="space-y-1">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C1917] font-display">
-              Festival History
-            </h2>
-          </div>
-          <span className="text-xs text-[#78716C]">
-            13 Editions • Since 2012
-          </span>
-        </motion.div>
+        <SectionHeading
+          eyebrow="Historic Chronicle"
+          title="Festival History"
+          action={<span className="text-xs text-[#78716C]">13 Editions • Since 2012</span>}
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-start">
           <motion.div

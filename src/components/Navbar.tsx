@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { ImpucuzekoLogo } from './ImpucuzekoLogo';
 import { FestivalEdition } from '../types';
+import { Button } from './ui/Button';
 
 interface NavbarProps {
   currentFestival: FestivalEdition;
@@ -71,12 +72,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right CTAs */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => onNavigate('archive-2026')}
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#1C1917] hover:bg-[#E36414] text-white transition-colors cursor-pointer"
-          >
-            2026 Recap
-          </button>
+          <div className="hidden sm:block">
+            <Button variant="dark" onClick={() => onNavigate('archive-2026')}>
+              2026 Recap
+            </Button>
+          </div>
 
           {/* Hamburger Menu Toggle */}
           <button
@@ -134,24 +134,26 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             <div className="pt-6 border-t border-[#E7E5E4] space-y-3">
-              <button
+              <Button
+                variant="dark"
+                fullWidth
                 onClick={() => {
                   onOpenTickets();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full py-3 bg-[#1C1917] hover:bg-[#E36414] text-white text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
               >
                 {currentFestival.ticketStatus === 'sold_out' ? 'Tickets Sold Out' : 'Get Passes'}
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
+                fullWidth
                 onClick={() => {
                   onOpenCMS();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full py-3 border border-[#E7E5E4] hover:border-[#1C1917] text-[#1C1917] text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Organiser Portal
-              </button>
+              </Button>
             </div>
           </div>
         </div>
