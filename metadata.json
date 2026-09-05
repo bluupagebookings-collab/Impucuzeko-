@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Impucuzeko Maskandi Festival",
+  "description": "The official digital home and archive of Impucuzeko Maskandi Festival – The Maskandi World Cup at Moses Mabhida People\u0027s Park, Durban.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
