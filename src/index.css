@@ -64,3 +64,27 @@ body {
 .editorial-img:hover {
   transform: scale(1.02);
 }
+
+/* Fixed navbar offset for in-page anchor jumps */
+html {
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation (used by modals, navbar, gallery lightbox) */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hide scrollbar on horizontal slider tracks */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

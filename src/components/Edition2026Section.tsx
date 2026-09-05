@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { FestivalEdition } from '../types';
+import { SectionHeading } from './ui/SectionHeading';
 
 interface Edition2026SectionProps {
   festival: FestivalEdition;
@@ -97,22 +98,11 @@ export const Edition2026Section: React.FC<Edition2026SectionProps> = () => {
     <section id="festival-2026-recap" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FAF6F0] via-[#FCFAF7] to-[#F5EFEB] text-[#1C1917] border-t border-amber-900/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="pb-6 border-b border-amber-900/10 mb-8 space-y-1"
-        >
-          <h2 className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-[#1C1917]">
-            2026 Moments
-          </h2>
-          <p className="text-sm text-[#78716C] flex items-center gap-2">
-            <span>Saturday 29 August 2026</span>
-            <span>•</span>
-            <span>Moses Mabhida People&apos;s Park</span>
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="2026 In Review"
+          title="2026 Moments"
+          description="Saturday 29 August 2026 • Moses Mabhida People's Park"
+        />
 
         {/* Slide track */}
         <motion.div

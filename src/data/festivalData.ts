@@ -516,6 +516,47 @@ export const EDITORIAL_STORIES: Story[] = [
   }
 ];
 
+export const FESTIVAL_PROMOTERS = [
+  {
+    name: 'Sikinya Media',
+    role: 'Lead Event Promoter',
+    note: 'Lead promoters and stage production for the 13th edition.'
+  },
+  {
+    name: 'Name Surname',
+    role: 'Promoter',
+    note: ''
+  },
+  {
+    name: 'Name Surname',
+    role: 'Promoter',
+    note: ''
+  }
+];
+
+export const FESTIVAL_INFLUENCERS = [
+  {
+    name: 'Name Surname',
+    role: 'Journalist',
+    note: 'Print & digital coverage'
+  },
+  {
+    name: 'Name Surname',
+    role: 'Broadcaster',
+    note: 'Radio broadcast'
+  },
+  {
+    name: 'Name Surname',
+    role: 'Influencer',
+    note: 'Social media campaign'
+  },
+  {
+    name: 'Name Surname',
+    role: 'Videographer',
+    note: 'Festival documentary'
+  }
+];
+
 export const VERIFIED_PARTNERS: Partner[] = [
   {
     name: 'PRASA',
