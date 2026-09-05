@@ -32,18 +32,6 @@ export const PeoplesTrainFeature: React.FC = () => {
             className="lg:col-span-5 space-y-4 sm:space-y-5"
           >
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                  className="block h-px w-8 origin-left bg-[#E36414]"
-                />
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#E36414]">
-                  Landmark Transit
-                </span>
-              </div>
               <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#1C1917] tracking-tight">
                 The People&apos;s Train
               </h2>

@@ -18,7 +18,6 @@ export const LegacyTimeline: React.FC<LegacyTimelineProps> = ({
     <section id="archive-editorial" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FAF6F0] via-[#FCFAF7] to-[#F5EFEB] text-[#1C1917] border-t border-amber-900/10 grain-bg overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Historic Chronicle"
           title="Festival History"
           action={<span className="text-xs text-[#78716C]">13 Editions • Since 2012</span>}
         />

@@ -21,7 +21,6 @@ export const ArtistsSection: React.FC<ArtistsSectionProps> = ({
     <section id="artists-editorial" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FAF6F0] via-[#FCFAF7] to-[#F5EFEB] text-[#1C1917] border-t border-amber-900/10 grain-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="The Lineup"
           title="2026 Stage Masters"
           description="The headline artists and traditional acoustic icons who took to the grand stage at Moses Mabhida People's Park."
           action={onViewAllArtists ? (

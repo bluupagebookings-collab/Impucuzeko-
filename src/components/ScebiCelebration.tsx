@@ -24,18 +24,6 @@ export const ScebiCelebration: React.FC<ScebiCelebrationProps> = () => {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 order-2 lg:order-1 space-y-3 sm:space-y-5"
           >
-            <div className="flex items-center gap-3">
-              <motion.span
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="block h-px w-8 origin-left bg-[#E36414]"
-              />
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#E36414]">
-                In Memoriam
-              </span>
-            </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] font-display text-white">
               Honouring Sicebi &ldquo;Inkosi Yamagcokama&rdquo; Dlamini
             </h2>

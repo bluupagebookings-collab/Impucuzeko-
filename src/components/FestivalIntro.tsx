@@ -10,7 +10,6 @@ export const FestivalIntro: React.FC = () => {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-6">
         <SectionHeading
-          eyebrow="The Festival"
           title="The Maskandi World Cup"
           description="Impucuzeko Maskandi Festival is South Africa&apos;s premier indigenous music gathering, celebrated across Africa. Founded in Durban in 2012, it has evolved into the definitive stage for acoustic guitar virtuosity, poetic Zulu heritage, and cultural unity."
           align="center"

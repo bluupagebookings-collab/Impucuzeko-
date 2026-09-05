@@ -9,7 +9,6 @@ export const FoundersAndMediaSection: React.FC = () => {
     <section id="founders-and-media" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FCFAF7] via-[#FFFDF9] to-[#FAF6F0] text-[#1C1917] border-t border-amber-900/10 grain-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Appreciation"
           title="Founders, Promoters & Media"
         />
 

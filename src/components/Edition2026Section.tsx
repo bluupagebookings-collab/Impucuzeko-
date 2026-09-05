@@ -99,7 +99,6 @@ export const Edition2026Section: React.FC<Edition2026SectionProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <SectionHeading
-          eyebrow="2026 In Review"
           title="2026 Moments"
           description="Saturday 29 August 2026 • Moses Mabhida People's Park"
         />
