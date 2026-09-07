@@ -15,8 +15,8 @@ export const PeoplesTrainFeature: React.FC = () => {
             className="lg:col-span-7 aspect-[16/10] overflow-hidden bg-[#E7E5E4]"
           >
             <img
-              src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1800&q=85"
-              alt="Passenger train arriving in Durban"
+              src="https://i.ibb.co/XfcLjMH4/1788653290952.jpg"
+              alt="The People's Train (Isitimela Sabantu) at Durban"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               loading="lazy"
               referrerPolicy="no-referrer"

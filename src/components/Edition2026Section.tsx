@@ -13,86 +13,56 @@ interface ChronicleSlide {
   title: string;
   caption: string;
   image: string;
+  widthClass: string;
+  objectPosition: string;
 }
 
 const CHRONICLE_SLIDES: ChronicleSlide[] = [
   {
     id: 'crowd-25000',
-    title: '25,000 at Moses Mabhida',
-    caption: 'A capacity crowd gathered under the stadium arch for 14 hours of non-stop Maskandi music.',
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=85'
+    title: 'Historic 25,000-Strong Attendance',
+    caption: 'A capacity crowd of over 25,000 passionate devotees filled Moses Mabhida People’s Park, uniting music lovers from all nine provinces for an unforgettable celebration of Maskandi heritage.',
+    image: 'https://i.ibb.co/nsVNtWtG/1788650356948.jpg',
+    widthClass: 'w-[74vw] sm:w-[500px] md:w-[580px]',
+    objectPosition: 'object-center'
   },
   {
-    id: 'street-parade',
-    title: 'Traditional Street Parade',
-    caption: 'Devotees in traditional Zulu dress sang their way along the Durban promenade to the park gates.',
-    image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1400&q=85'
+    id: 'prasa-partnership',
+    title: 'PRASA #IsitimelaSabantu Activation',
+    caption: 'The landmark brand partnership with PRASA in full motion, activating dedicated passenger rail services that transported thousands of festival-goers directly into Durban.',
+    image: 'https://i.ibb.co/FLGshMZc/1788652363354.jpg',
+    widthClass: 'w-[74vw] sm:w-[500px] md:w-[580px]',
+    objectPosition: 'object-center'
   },
   {
-    id: 'peoples-train',
-    title: "Isitimela Sabantu (The People's Train)",
-    caption: 'PRASA chartered free passenger trains to bring supporters from across KwaZulu-Natal to Durban Station.',
-    image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1400&q=85'
+    id: 'shwi-nomtekhala',
+    title: 'The Reunion of Shwi NoMtekhala',
+    caption: 'An iconic cultural milestone: revered Maskandi legends Shwi NoMtekhala reuniting on stage after years of separation, delivering an emotional set of timeless classic anthems.',
+    image: 'https://i.ibb.co/Tq1T7HW4/1788652291389.jpg',
+    widthClass: 'w-[68vw] sm:w-[340px] md:w-[380px]',
+    objectPosition: 'object-top'
   },
   {
-    id: 'main-stage',
-    title: 'Main Stage Performance',
-    caption: 'Headline artists and competitive guitarists played back-to-back under stadium floodlights.',
-    image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=85'
+    id: 'umayogurt-entrance',
+    title: 'A Grand Royal Entrance by uMaYogurt',
+    caption: 'Inkosi YoMaskandi uMaYogurt commanding the stadium grounds in splendid traditional Zulu regalia, welcomed by thunderous applause and ceremonial chants from the crowd.',
+    image: 'https://i.ibb.co/3Yzy0fDP/1788652275301.jpg',
+    widthClass: 'w-[68vw] sm:w-[300px] md:w-[340px]',
+    objectPosition: 'object-top'
   },
   {
-    id: 'guitar-mastery',
-    title: 'Acoustic Virtuosity',
-    caption: 'The lightning-fast fingerpicking and clan praises that define the authentic Maskandi sound.',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1400&q=85'
-  },
-  {
-    id: 'zulu-regalia',
-    title: 'Zulu Heritage & Regalia',
-    caption: 'Handcrafted beadwork, headbands, and traditional attire celebrated throughout the grounds.',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1400&q=85'
+    id: 'mayor-visit',
+    title: 'Civic Honour: Visit by eThekwini Mayor',
+    caption: 'eThekwini leadership and the Mayor visiting the festival in person, affirming governmental patronage and celebrating the profound cultural and economic impact of Impucuzeko.',
+    image: 'https://i.ibb.co/9mpxTbpT/1788652210316.jpg',
+    widthClass: 'w-[68vw] sm:w-[340px] md:w-[380px]',
+    objectPosition: 'object-top'
   }
 ];
 
 export const Edition2026Section: React.FC<Edition2026SectionProps> = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleScroll = () => {
-    if (!sliderRef.current) return;
-    const container = sliderRef.current;
-    const scrollLeft = container.scrollLeft;
-    const slideElements = container.children;
-    if (slideElements.length === 0) return;
-
-    let closestIndex = 0;
-    let minDiff = Infinity;
-
-    for (let i = 0; i < slideElements.length; i++) {
-      const el = slideElements[i] as HTMLElement;
-      const diff = Math.abs(el.offsetLeft - container.offsetLeft - scrollLeft);
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestIndex = i;
-      }
-    }
-
-    setCurrentIndex(closestIndex);
-  };
-
-  const scrollToIndex = (index: number) => {
-    if (!sliderRef.current) return;
-    const targetIndex = Math.max(0, Math.min(index, CHRONICLE_SLIDES.length - 1));
-    const container = sliderRef.current;
-    const targetChild = container.children[targetIndex] as HTMLElement;
-    if (targetChild) {
-      container.scrollTo({
-        left: targetChild.offsetLeft - container.offsetLeft,
-        behavior: 'smooth'
-      });
-      setCurrentIndex(targetIndex);
-    }
-  };
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <section id="festival-2026-recap" className="relative py-12 sm:py-20 md:py-24 bg-gradient-to-b from-[#FAF6F0] via-[#FCFAF7] to-[#F5EFEB] text-[#1C1917] border-t border-amber-900/10 overflow-hidden">
@@ -100,66 +70,134 @@ export const Edition2026Section: React.FC<Edition2026SectionProps> = () => {
         {/* Header */}
         <SectionHeading
           title="2026 Moments"
-          description="Saturday 29 August 2026 • Moses Mabhida People's Park"
         />
 
-        {/* Slide track */}
+        {/* Slide track - bleeds to mobile screen edge (-mx-4 px-4) so second picture peeks distinctly */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           ref={sliderRef}
-          onScroll={handleScroll}
-          className="flex gap-6 sm:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar select-none"
+          className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar select-none -mx-4 px-4 sm:mx-0 sm:px-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {CHRONICLE_SLIDES.map((slide, idx) => (
             <div
               key={slide.id}
-              onClick={() => scrollToIndex(idx)}
-              className="w-[82vw] sm:w-[500px] md:w-[600px] shrink-0 snap-start space-y-3 cursor-pointer group"
+              onClick={() => setLightboxIndex(idx)}
+              className={`${slide.widthClass} shrink-0 snap-start space-y-3 cursor-pointer group`}
             >
-              {/* Photograph alone without frame or card border */}
-              <div className="w-full aspect-[16/10] overflow-hidden bg-[#E7E5E4]">
+              {/* Photograph container with sharp edges */}
+              <div className="w-full h-[290px] sm:h-[400px] md:h-[440px] overflow-hidden bg-[#E7E5E4] relative border border-amber-900/15 group-hover:border-amber-900/40 transition-colors">
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className={`w-full h-full object-cover ${slide.objectPosition} group-hover:scale-105 transition-transform duration-500 ease-out`}
                   loading={idx <= 1 ? 'eager' : 'lazy'}
                   referrerPolicy="no-referrer"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none" />
+                <div className="absolute bottom-2.5 right-2.5 px-2 py-1 bg-black/75 text-[10px] uppercase font-semibold tracking-wider text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                  View Photo
+                </div>
               </div>
 
               {/* Caption */}
               <div className="pt-1">
-                <h3 className="text-lg sm:text-xl font-bold font-display text-[#1C1917] group-hover:text-[#E36414] transition-colors tracking-tight">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold font-display text-[#1C1917] group-hover:text-[#E36414] transition-colors tracking-tight leading-snug">
                   {slide.title}
                 </h3>
-                <p className="mt-1 text-sm text-[#57534E] leading-relaxed">
+                <p className="mt-1 text-xs sm:text-sm text-[#57534E] leading-relaxed line-clamp-2 sm:line-clamp-none">
                   {slide.caption}
                 </p>
               </div>
             </div>
           ))}
-        </motion.div>
 
-        {/* Clean track dashes */}
-        <div className="flex items-center gap-2 pt-4">
-          {CHRONICLE_SLIDES.map((slide, idx) => (
-            <button
-              key={slide.id}
-              onClick={() => scrollToIndex(idx)}
-              className={`transition-all duration-200 cursor-pointer ${
-                currentIndex === idx
-                  ? 'w-6 h-0.5 bg-[#1C1917]'
-                  : 'w-2 h-0.5 bg-[#1C1917]/25 hover:bg-[#1C1917]/50'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
+          {/* End spacer for smooth mobile edge scroll */}
+          <div className="w-4 sm:w-0 shrink-0" aria-hidden="true" />
+        </motion.div>
       </div>
+
+      {/* Lightbox Modal for Uncropped Full-Resolution Viewing */}
+      {lightboxIndex !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-sm flex flex-col justify-between p-4 sm:p-6 md:p-8 animate-fade-in"
+          onClick={() => setLightboxIndex(null)}
+        >
+          {/* Top Bar */}
+          <div
+            className="flex items-center justify-between text-white max-w-6xl mx-auto w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div>
+              <p className="text-xs uppercase tracking-widest text-[#E36414] font-semibold">
+                2026 Moments • {lightboxIndex + 1} / {CHRONICLE_SLIDES.length}
+              </p>
+              <h4 className="text-lg sm:text-xl font-bold font-display text-white mt-0.5">
+                {CHRONICLE_SLIDES[lightboxIndex].title}
+              </h4>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(null)}
+              className="p-2 text-stone-400 hover:text-white transition-colors cursor-pointer text-xl leading-none"
+              aria-label="Close photo"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Full Image in Center */}
+          <div
+            className="flex-1 flex items-center justify-center p-2 sm:p-4 my-2 relative max-w-6xl mx-auto w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={CHRONICLE_SLIDES[lightboxIndex].image}
+              alt={CHRONICLE_SLIDES[lightboxIndex].title}
+              className="max-h-[68vh] sm:max-h-[72vh] max-w-full object-contain shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+
+            {/* Lightbox Prev / Next */}
+            {lightboxIndex > 0 && (
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(lightboxIndex - 1)}
+                className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-[#E36414] text-white flex items-center justify-center transition-colors cursor-pointer text-lg"
+                aria-label="Previous photo"
+              >
+                ‹
+              </button>
+            )}
+            {lightboxIndex < CHRONICLE_SLIDES.length - 1 && (
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(lightboxIndex + 1)}
+                className="absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-[#E36414] text-white flex items-center justify-center transition-colors cursor-pointer text-lg"
+                aria-label="Next photo"
+              >
+                ›
+              </button>
+            )}
+          </div>
+
+          {/* Bottom Caption */}
+          <div
+            className="max-w-3xl mx-auto w-full text-center pb-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
+              {CHRONICLE_SLIDES[lightboxIndex].caption}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

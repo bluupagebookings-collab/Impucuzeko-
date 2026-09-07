@@ -15,10 +15,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
 }) => {
   const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
 
-  // Focus on festival atmosphere, crowd, stage, and regalia for the overview
-  const displayImages = images.filter((img) => !img.id.includes('sicebi')).length >= 3
-    ? images.filter((img) => !img.id.includes('sicebi'))
-    : images;
+  const displayImages = images;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -39,9 +36,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Festival Gallery"
+          description="Photographic dispatches from Moses Mabhida People’s Park — capturing the crowd, stage mastery, and Zulu regalia."
           action={onViewAllGallery ? (
             <Button variant="link" arrow onClick={onViewAllGallery}>
-              Full Archive Photography
+              View All Photographs ({displayImages.length})
             </Button>
           ) : undefined}
         />
@@ -53,10 +51,11 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-4 sm:space-y-6 md:space-y-8"
         >
+          {/* Top Feature: Wide Stadium Panorama */}
           {displayImages[0] && (
             <div
               onClick={() => setActiveImage(displayImages[0])}
-              className="cursor-pointer group relative overflow-hidden bg-[#FAFAF8] h-56 sm:h-80 md:h-[55vh]"
+              className="cursor-pointer group relative overflow-hidden bg-[#FAFAF8] h-64 sm:h-96 md:h-[52vh]"
             >
               <img
                 src={displayImages[0].url}
@@ -66,54 +65,64 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-8">
-                <div className="text-white text-xs">
+                <div className="text-white text-xs sm:text-sm">
                   <span className="font-semibold text-amber-200">{displayImages[0].title}</span> • {displayImages[0].year}
                 </div>
               </div>
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:gap-8 items-start">
-            {displayImages[1] && (
-              <div
-                onClick={() => setActiveImage(displayImages[1])}
-                className="md:col-span-7 cursor-pointer group relative overflow-hidden bg-[#FAFAF8] h-48 sm:h-64 md:h-[45vh]"
-              >
-                <img
-                  src={displayImages[1].url}
-                  alt={displayImages[1].title}
-                  className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out filter contrast-105"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-6">
-                  <div className="text-white text-xs">
-                    <span className="font-semibold text-amber-200">{displayImages[1].title}</span> • {displayImages[1].year}
+          {/* Row 2: 3-column photo grid */}
+          {displayImages.length > 1 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+              {displayImages.slice(1, 4).map((img) => (
+                <div
+                  key={img.id}
+                  onClick={() => setActiveImage(img)}
+                  className="cursor-pointer group relative overflow-hidden bg-[#FAFAF8] h-72 sm:h-80 md:h-[44vh]"
+                >
+                  <img
+                    src={img.url}
+                    alt={img.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out filter contrast-105"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-5">
+                    <div className="text-white text-xs">
+                      <span className="font-semibold text-amber-200">{img.title}</span> • {img.year}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              ))}
+            </div>
+          )}
 
-            {displayImages[2] && (
-              <div
-                onClick={() => setActiveImage(displayImages[2])}
-                className="md:col-span-5 cursor-pointer group relative overflow-hidden bg-[#FAFAF8] h-48 sm:h-64 md:h-[45vh]"
-              >
-                <img
-                  src={displayImages[2].url}
-                  alt={displayImages[2].title}
-                  className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out filter contrast-105"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-6">
-                  <div className="text-white text-xs">
-                    <span className="font-semibold text-amber-200">{displayImages[2].title}</span> • {displayImages[2].year}
+          {/* Row 3: 2-column balanced feature */}
+          {displayImages.length > 4 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              {displayImages.slice(4).map((img) => (
+                <div
+                  key={img.id}
+                  onClick={() => setActiveImage(img)}
+                  className="cursor-pointer group relative overflow-hidden bg-[#FAFAF8] h-64 sm:h-76 md:h-[40vh]"
+                >
+                  <img
+                    src={img.url}
+                    alt={img.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out filter contrast-105"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-5">
+                    <div className="text-white text-xs">
+                      <span className="font-semibold text-amber-200">{img.title}</span> • {img.year}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
 

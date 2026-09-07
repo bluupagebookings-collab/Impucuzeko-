@@ -3,9 +3,7 @@ import { motion } from 'motion/react';
 import { Play } from 'lucide-react';
 import { SectionHeading } from './ui/SectionHeading';
 
-interface ScebiCelebrationProps {
-  onSelectArtist?: () => void;
-}
+interface ScebiCelebrationProps {}
 
 export const ScebiCelebration: React.FC<ScebiCelebrationProps> = () => {
   const [isPlaying, setIsPlaying] = useState(false);

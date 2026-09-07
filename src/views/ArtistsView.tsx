@@ -3,17 +3,19 @@ import { Artist } from '../types';
 
 interface ArtistsViewProps {
   artists: Artist[];
-  onSelectArtist: (artist: Artist) => void;
+  onSelectArtist?: (artist: Artist) => void;
 }
 
-export const ArtistsView: React.FC<ArtistsViewProps> = ({ artists, onSelectArtist }) => {
+export const ArtistsView: React.FC<ArtistsViewProps> = ({ artists }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [search, setSearch] = useState('');
 
   const filteredArtists = artists.filter((artist) => {
     const matchCat = selectedCategory === 'all' || artist.category === selectedCategory;
-    const matchSearch = artist.name.toLowerCase().includes(search.toLowerCase()) ||
-      (artist.origin && artist.origin.toLowerCase().includes(search.toLowerCase()));
+    const matchSearch =
+      artist.name.toLowerCase().includes(search.toLowerCase()) ||
+      (artist.soundDescription && artist.soundDescription.toLowerCase().includes(search.toLowerCase())) ||
+      (artist.knownFor && artist.knownFor.toLowerCase().includes(search.toLowerCase()));
     return matchCat && matchSearch;
   });
 
@@ -43,7 +45,7 @@ export const ArtistsView: React.FC<ArtistsViewProps> = ({ artists, onSelectArtis
                     : 'bg-[#E7E5E4]/60 text-[#57534E] hover:bg-[#E7E5E4] hover:text-[#1C1917]'
                 }`}
               >
-                {cat === 'all' ? 'All Masters' : cat === 'honouree' ? 'Honouree' : cat.replace('_', ' ')}
+                {cat === 'all' ? 'All Masters' : cat === 'honouree' ? 'Honouree' : cat === 'legend' ? 'Legend Reunite' : cat.replace('_', ' ')}
               </button>
             ))}
           </div>
@@ -51,7 +53,7 @@ export const ArtistsView: React.FC<ArtistsViewProps> = ({ artists, onSelectArtis
           <div className="w-full md:w-72">
             <input
               type="text"
-              placeholder="Search artist or region..."
+              placeholder="Search artist by name or sound..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full bg-white border border-[#E7E5E4] px-4 py-2 text-xs text-[#1C1917] placeholder-[#A8A29E] focus:outline-none focus:border-[#1C1917] rounded-full"
@@ -64,25 +66,21 @@ export const ArtistsView: React.FC<ArtistsViewProps> = ({ artists, onSelectArtis
           {filteredArtists.map((artist) => (
             <div
               key={artist.id}
-              onClick={() => onSelectArtist(artist)}
-              className="cursor-pointer group flex flex-col space-y-3"
+              className="group flex flex-col space-y-3 select-none"
             >
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#E7E5E4]">
                 <img
                   src={artist.image}
                   alt={artist.name}
-                  className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="w-full h-full object-cover object-top filter contrast-105"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-85" />
                 <div className="absolute bottom-3 left-3 right-3 text-white">
                   <h3 className="text-base sm:text-lg font-bold tracking-tight font-display line-clamp-1">
                     {artist.name}
                   </h3>
-                  <p className="text-xs text-white/80 font-normal truncate mt-0.5">
-                    {artist.origin || 'KwaZulu-Natal'}
-                  </p>
                 </div>
               </div>
             </div>

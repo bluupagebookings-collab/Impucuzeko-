@@ -66,28 +66,28 @@ export const GalleryView: React.FC<GalleryViewProps> = ({ images }) => {
           ))}
         </div>
 
-        {/* Photography Grid - NO CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 mt-6 sm:mt-10">
+        {/* Photography Grid - Clean Borderless Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-10">
           {filteredImages.map((image) => (
             <div
               key={image.id}
               onClick={() => setActiveImage(image)}
-              className="cursor-pointer group relative overflow-hidden bg-[#E7E5E4] aspect-[4/3]"
+              className="cursor-pointer group relative overflow-hidden bg-[#E7E5E4] h-72 sm:h-80 md:h-96"
             >
               <img
                 src={image.url}
                 alt={image.title}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out filter contrast-105"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out filter contrast-105"
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
-                <div className="text-white space-y-0.5">
-                  <h3 className="text-base font-bold tracking-tight font-display">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
+                <div className="text-white space-y-1">
+                  <h3 className="text-base font-bold tracking-tight font-display leading-snug">
                     {image.title}
                   </h3>
-                  <p className="text-xs text-white/80">
-                    {image.year} • {image.category}
+                  <p className="text-xs text-white/80 line-clamp-2">
+                    {image.caption}
                   </p>
                 </div>
               </div>

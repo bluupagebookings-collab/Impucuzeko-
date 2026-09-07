@@ -32,22 +32,32 @@ export const ContactView: React.FC = () => {
           <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1C1917] font-display leading-tight">
-                Organisers & Directors
+                Founders & Directors
               </h2>
             </div>
 
             <div className="space-y-6 divide-y divide-[#E7E5E4] border-y border-[#E7E5E4] py-6">
               {FESTIVAL_ORGANISERS.map((org) => (
-                <div key={org.name} className="pt-4 first:pt-0 space-y-1">
-                  <h3 className="text-lg font-bold tracking-tight text-[#1C1917] font-display">
-                    {org.name}
-                  </h3>
-                  <p className="text-xs uppercase tracking-wider text-[#B45309] font-semibold">
-                    {org.role}
-                  </p>
-                  <p className="text-sm text-[#57534E] font-normal pt-1 leading-[1.6]">
-                    {org.bio || org.note}
-                  </p>
+                <div key={org.name} className="pt-4 first:pt-0 flex items-start gap-3.5">
+                  {org.image && (
+                    <img
+                      src={org.image}
+                      alt={org.name}
+                      className="w-12 h-12 sm:w-14 sm:h-14 object-cover object-top border border-amber-900/15 shrink-0"
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
+                  <div className="space-y-1">
+                    <h3 className="text-base sm:text-lg font-bold tracking-tight text-[#1C1917] font-display">
+                      {org.name}
+                    </h3>
+                    <p className="text-xs uppercase tracking-wider text-[#B45309] font-semibold">
+                      {org.role}
+                    </p>
+                    <p className="text-sm text-[#57534E] font-normal pt-0.5 leading-[1.6]">
+                      {org.bio || org.note}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

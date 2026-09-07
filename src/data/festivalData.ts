@@ -1,4 +1,4 @@
-import { FestivalEdition, Artist, GalleryImage, Story, Partner, VendorCategory, FaqItem } from '../types';
+import { FestivalEdition, Artist, GalleryImage, Story, Partner, PartnerLogo, VendorCategory, FaqItem } from '../types';
 
 export const INITIAL_CURRENT_FESTIVAL: FestivalEdition = {
   year: 2026,
@@ -25,22 +25,18 @@ export const INITIAL_CURRENT_FESTIVAL: FestivalEdition = {
 
 export const FESTIVAL_ORGANISERS = [
   {
-    name: 'Xolani Mcineka',
-    role: 'Festival Co-Founder & Director',
-    note: 'Co-organiser steering Impucuzeko from its origins at Curries Fountain to Moses Mabhida People’s Park.',
-    bio: 'Co-organiser steering Impucuzeko from its origins at Curries Fountain to Moses Mabhida People’s Park.'
-  },
-  {
     name: 'Sandile Ndlanya',
     role: 'Festival Co-Founder & Director',
-    note: 'Co-organiser and cultural producer overseeing talent, logistics, and heritage preservation for the festival.',
-    bio: 'Co-organiser and cultural producer overseeing talent, logistics, and heritage preservation for the festival.'
+    image: 'https://i.ibb.co/99mTY5WW/1788740559492.jpg',
+    note: 'Co-founder and cultural producer overseeing talent, logistics, and heritage preservation for the festival.',
+    bio: 'Co-founder and cultural producer overseeing talent, logistics, and heritage preservation for the festival.'
   },
   {
-    name: 'Tshatha Ngobe',
-    role: 'Festival Co-Director & Cultural Patron',
-    note: 'Ukhozi FM broadcaster, cultural champion, and co-director championing the Maskandi World Cup.',
-    bio: 'Renowned Ukhozi FM broadcaster, cultural champion, and festival co-director.'
+    name: 'Xolani Mcineka',
+    role: 'Festival Co-Founder & Director',
+    image: 'https://i.ibb.co/GvGnpxmg/1788740508554.jpg',
+    note: 'Co-founder steering Impucuzeko from its origins at Curries Fountain to Moses Mabhida People’s Park.',
+    bio: 'Co-founder steering Impucuzeko from its origins at Curries Fountain to Moses Mabhida People’s Park.'
   }
 ];
 
@@ -125,7 +121,6 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'honouree',
     isFeatured: true,
     yearsPerformed: [2026],
-    origin: 'Msinga, KwaZulu-Natal',
     soundDescription: '2026 Festival Honouree commemorated in memoriam for his enduring cultural legacy.',
     knownFor: '2023 SATMA Best Maskandi winner, known for "Kuyanzenzakalela" and his deep Msinga heritage',
     bio: 'Sicebi "Inkosi Yamagcokama" Dlamini was one of Maskandi’s most beloved young artists. Born in Msinga, KwaZulu-Natal, he won Best Maskandi at the 2023 South African Traditional Music Awards (SATMA). At the 13th Annual Impucuzeko Maskandi Festival, fellow musicians, collaborators, and community members from his home area took to the stage to celebrate his life and perform his music in his memory.',
@@ -141,11 +136,10 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'headliner',
     isFeatured: true,
     yearsPerformed: [2026, 2025, 2024, 2016],
-    origin: 'Nkandla, KwaZulu-Natal',
     soundDescription: 'Fast-tempo, driving acoustic guitar with booming, authoritative vocals and massive stadium choruses.',
     knownFor: 'High-octane vocal delivery, record-breaking concert turnouts, and anthemic songcraft',
-    bio: 'Known across South Africa as "Indlamlenze", Khuzani Mpungose from Nkandla is a reigning giant of modern Maskandi. Famous for filling stadiums and commanding the devoted "Blue Nation" fan base, his energetic stage presence and anthems like "Iskhova" have earned him countless music awards.',
-    image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80',
+    bio: 'Known across South Africa as "Indlamlenze", Khuzani Mpungose is a reigning giant of modern Maskandi. Famous for filling stadiums and commanding the devoted "Blue Nation" fan base, his energetic stage presence and anthems like "Iskhova" have earned him countless music awards.',
+    image: 'https://i.ibb.co/LDw1Pfk4/1788653526687.jpg',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com'
@@ -157,28 +151,117 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'headliner',
     isFeatured: true,
     yearsPerformed: [2026, 2025, 2024],
-    origin: 'Nongoma, KwaZulu-Natal',
     soundDescription: 'Smooth and sweet acoustic melodies, heartfelt singing, and rich traditional vocal harmonies with modern appeal.',
     knownFor: 'Emotive lyricism, crossover appeal, and heartfelt traditional harmonies',
-    bio: 'Senzo "Ntencane" Zondi from Nongoma made history when his song "Wawuthembeni" crossed over into mainstream South African radio to win SAMA Song of the Year. He is admired for his tender love ballads, poetic lyricism, and seamless blend of traditional and modern sounds.',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80',
+    bio: 'Senzo "Ntencane" Zondi made history when his song "Wawuthembeni" crossed over into mainstream South African radio to win SAMA Song of the Year. He is admired for his tender love ballads, poetic lyricism, and seamless blend of traditional and modern sounds.',
+    image: 'https://i.ibb.co/V0VQjPpp/1788654580558.jpg',
     socials: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com'
     }
   },
   {
-    id: 'gatsheni',
-    name: 'Gatsheni',
-    category: 'main_lineup',
+    id: 'mjolisi',
+    name: 'Mjolisi',
+    category: 'headliner',
     isFeatured: true,
     yearsPerformed: [2026, 2025],
-    origin: 'Phongolo, KwaZulu-Natal',
-    soundDescription: 'Deep, resonant acoustic basslines and gravelly, powerful vocals that tell real stories of working-class life.',
-    knownFor: 'Unflinching narrative depth and commanding stage presence',
-    bio: 'Zwelivelile Ntombela, known as Gatsheni, hails from Phongolo in northern KwaZulu-Natal. He has become one of Maskandi’s most respected voices through songs that speak honestly about the struggles of migrant workers, rural poverty, and family perseverance, backed by heavy rhythmic grooves.',
-    image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=80',
+    soundDescription: 'Deep, authoritative vocals over heavy rhythmic acoustic basslines and unforgettable sing-along melodies.',
+    knownFor: 'Massive cultural anthems including "My Dululu", "Ubambo Lwami", and Ukhozi FM Song of the Year contender',
+    bio: 'Mlungisi "Mjolisi" Gwala is a powerhouse vocalist and revered composer in contemporary Maskandi. Renowned for chart-topping singles such as "My Dululu" (which earned over 500,000 votes in Ukhozi FM’s Song of the Year) and albums like "Baba kaEnzo" and "Inganono", Mjolisi commands devoted stadiums across South Africa with his emotive storytelling and unshakeable traditional roots.',
+    image: 'https://i.ibb.co/hvHzpxy/1788654825838.jpg',
     socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'limit',
+    name: 'Limit Nala',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Fast-paced, aggressive acoustic guitar picking combined with rapid praise poetry (izibongo) and energetic dance.',
+    knownFor: 'Rapid-fire poetic izibongo and dynamic stage movements',
+    bio: 'Limit Ivelamumva Nala is renowned for electric stage energy. He delivers rapid-fire praise poetry while dancing with lightning speed, turning every festival performance into a showcase of traditional warrior spirit and musical endurance.',
+    image: 'https://i.ibb.co/JRc6hwpp/1788654837100.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'falabo',
+    name: 'Falabo',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Ultra-fast, delicate thumb-and-finger picking technique ("Magic Fingers") with warm, classic acoustic grooves.',
+    knownFor: 'Masterful guitar picking dexterity earning him the nickname "Magic Fingers"',
+    bio: 'Nicknamed "Magic Fingers" by Maskandi devotees, Falabo is widely recognized as one of the most technically gifted guitarists in the genre, creating complex melodic patterns that sound like multiple instruments playing at once.',
+    image: 'https://i.ibb.co/q33mW3F9/1788654874225.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'is-nkeshemba',
+    name: 'Is Nkeshemba',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Melodic acoustic storytelling blending classic Maskandi picking with modern youth energy.',
+    knownFor: 'Breakthrough releases including "Soft Skin", "Usungikhombisile", and Bhodloza Foundation award winner',
+    bio: 'Qiniso "Is Nkeshemba" Nkomo is one of modern Maskandi’s most electrifying young storytellers. Winner of the prestigious Bhodloza Foundation competition, his nimble guitar phrasing and poignant lyricism on hits like "Soft Skin" and "Isibaya Sikababa" have made him an indispensable festival favorite.',
+    image: 'https://i.ibb.co/234PXMz4/1788654913370.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'gadla-nxumalo',
+    name: 'Gadla Nxumalo',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Punchy acoustic riffs, driving traditional tempo, and fearless narrative lyrics touching on everyday life.',
+    knownFor: 'Acclaimed albums including "March in March", "Iso Lenyathi", and popular tracks like "Udwendwe emandaba"',
+    bio: 'Known to Maskandi purists as UGadla, Gadla Nxumalo is celebrated for his vibrant stage presence, rapid acoustic picking, and prolific discography including "March in March" and "Iso Lenyathi". His candid social commentary and high-energy performances make him a major draw at People’s Park.',
+    image: 'https://i.ibb.co/mCwpLdDr/1788654752372.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'gandaganda',
+    name: 'Gandaganda',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Soul-stirring guitar picking, inspiring lyricism for youth, and energetic warrior dance rhythm.',
+    knownFor: 'Touching positive messages, authentic Maskandi compositions, and dynamic live festival performances',
+    bio: 'Jabulani "UGandaganda" Gwala, known as "UGandaganda Ongenasteringi", is admired for writing touching songs that inspire pride in African culture among youth. His solo albums and tracks like "Halala" and "Lilizela" highlight his mastery of the acoustic guitar and commanding stage personality.',
+    image: 'https://i.ibb.co/Tqv9MbYp/1788654736655.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'shenge',
+    name: 'Shenge',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Traditional Zulu guitar riffs, driving percussive rhythm, and raw vocal authenticity.',
+    knownFor: 'Standout Maskandi recordings such as "Sengigowishe Kwadlula" and pure acoustic musicianship',
+    bio: 'Shenge Wasehlalankosi is an authentic Maskandi traditionalist known for his sharp guitar picking and rich cultural resonance. With celebrated tracks like "Sengigowishe Kwadlula", Shenge embodies the timeless spirit of Zulu folklore, captivating festival audiences with authentic rhythms and acoustic prowess.',
+    image: 'https://i.ibb.co/prBfYr0r/1788654586490.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
       instagram: 'https://instagram.com'
     }
   },
@@ -188,12 +271,54 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'headliner',
     isFeatured: true,
     yearsPerformed: [2026, 2025, 2024],
-    origin: 'KwaZulu-Natal',
     soundDescription: 'Brisk acoustic guitar strumming and punchy rhythms with direct, honest lyrics about youth struggles and everyday reality.',
     knownFor: 'Punchy acoustic picking and relatable youth anthems including "Life after matric"',
     bio: 'Mpilo Seluleko Nkosi, known on stage as Dumakahle, is a prominent Maskandi voice who connects deeply with young listeners. His tracks, such as "Life after matric" and "Ukuhlanya Ngenqondo", address the real-life choices and struggles facing youth, performed with sharp acoustic technique and relentless stage energy.',
-    image: 'https://images.unsplash.com/photo-1520523839898-5071282543e1?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://i.ibb.co/nMhGgGHW/1788738525437.jpg',
     socials: {
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'gatsheni',
+    name: 'Gatsheni',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026, 2025],
+    soundDescription: 'Deep, resonant acoustic basslines and gravelly, powerful vocals that tell real stories of working-class life.',
+    knownFor: 'Unflinching narrative depth and commanding stage presence',
+    bio: 'Zwelivelile Ntombela, known as Gatsheni, has become one of Maskandi’s most respected voices through songs that speak honestly about the struggles of migrant workers, perseverance, and brotherhood, backed by heavy rhythmic grooves.',
+    image: 'https://i.ibb.co/ynpgx1xG/Ugatsheni-Picture.jpg',
+    socials: {
+      instagram: 'https://instagram.com'
+    }
+  },
+  {
+    id: 'jaiva-zimnike',
+    name: 'Jaiva Zimnike',
+    category: 'main_lineup',
+    isFeatured: true,
+    yearsPerformed: [2026],
+    soundDescription: 'Celebratory, up-tempo party grooves with infectious call-and-response crowd chants.',
+    knownFor: 'Festive crowd-rousing chants and signature rhythmic breakdowns',
+    bio: 'Jaiva Zimnike is celebrated for his vibrant party atmosphere and crowd control. His songs are tailored for massive festival singalongs, with driving bass notes and jubilant Zulu refrains that keep the stadium dancing.',
+    image: 'https://i.ibb.co/XkrCPwLP/images-46.jpg',
+    socials: {
+      facebook: 'https://facebook.com'
+    }
+  },
+  {
+    id: 'mdumazi',
+    name: 'Mdumazi',
+    category: 'legend',
+    isFeatured: true,
+    yearsPerformed: [2026, 2025],
+    soundDescription: 'Intricate, clean acoustic fingerpicking patterns paired with thoughtful, conversational vocal phrasing.',
+    knownFor: 'Exquisite acoustic picking technique, iconic live stage entrances, and reflective songs about Zulu morality',
+    bio: 'Mxolisi Mhlongo, known professionally as Mdumazi, is widely praised by Maskandi purists for his dynamic stage entrances, complex chord phrasing, and songs about morality and cultural pride, joining the legendary reunion lineup.',
+    image: '/images/mdumazi.jpg',
+    socials: {
+      facebook: 'https://facebook.com',
       instagram: 'https://instagram.com'
     }
   },
@@ -203,26 +328,10 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'legend',
     isFeatured: true,
     yearsPerformed: [2026, 2025, 2016],
-    origin: 'Msinga, KwaZulu-Natal',
     soundDescription: 'Soulful, gentle acoustic guitar rhythms with spiritual two-part harmonies and poetic folk wisdom.',
     knownFor: 'Multi-platinum folk-maskandi arrangements and the record-breaking classic "Wangisiza Baba"',
-    bio: 'Formed by childhood friends Mandla Xaba ("Shwi") and Zwelenduna Rodgers Magubane ("Mtekhala") from Msinga, this legendary duo revolutionized South African music in 2004 with their album "Wangisiza Baba", which sold over 500,000 copies. Their peaceful, spiritual harmonies remain a cornerstone of African folk music.',
-    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80',
-    socials: {
-      facebook: 'https://facebook.com'
-    }
-  },
-  {
-    id: 'mdumazi',
-    name: 'Mdumazi',
-    category: 'main_lineup',
-    isFeatured: true,
-    yearsPerformed: [2026, 2025],
-    origin: 'Mhlabuyalingana, KwaZulu-Natal',
-    soundDescription: 'Intricate, clean acoustic fingerpicking patterns paired with thoughtful, conversational vocal phrasing.',
-    knownFor: 'Exquisite acoustic picking technique and reflective songs about Zulu family values',
-    bio: 'Mxolisi Mhlongo, known professionally as Mdumazi, comes from Mhlabuyalingana in northern KwaZulu-Natal. Revering the classical purity of the Zulu acoustic guitar, he is widely praised by Maskandi purists for his calm stage presence, complex chord phrasing, and songs about morality and community pride.',
-    image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1000&q=80',
+    bio: 'Formed by childhood friends Mandla Xaba ("Shwi") and Zwelenduna Rodgers Magubane ("Mtekhala"), this legendary duo revolutionized South African music in 2004 with their album "Wangisiza Baba", which sold over 500,000 copies. Their peaceful, spiritual harmonies remain a cornerstone of African folk music.',
+    image: 'https://i.ibb.co/Tq1T7HW4/1788652291389.jpg',
     socials: {
       facebook: 'https://facebook.com'
     }
@@ -233,38 +342,41 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'legend',
     isFeatured: true,
     yearsPerformed: [2026, 2024],
-    origin: 'Nquthu, KwaZulu-Natal',
     soundDescription: 'Harmonious all-women chorus singing, traditional call-and-response chants, and steady acoustic percussion.',
     knownFor: 'Fearless political and social commentary, multi-platinum albums, and pioneering women leadership in Maskandi',
-    bio: 'Formed in Nquthu in 1993, Izingane ZoMa is South Africa’s most famous all-women Maskandi group. Led for decades by Khulekani Khuzwayo, their bold lyrics have tackled national politics, corruption, HIV awareness, and community justice, earning multiple platinum awards and legendary cultural status.',
+    bio: 'Formed in 1993, Izingane ZoMa is South Africa’s most famous all-women Maskandi group. Led for decades by Khulekani Khuzwayo, their bold lyrics have tackled national politics, corruption, HIV awareness, and community justice, earning multiple platinum awards and legendary cultural status.',
     image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80',
     socials: {
       facebook: 'https://facebook.com'
     }
   },
   {
-    id: 'limit',
-    name: 'Limit',
-    category: 'main_lineup',
-    isFeatured: false,
+    id: 'imfezi',
+    name: 'Imfezi',
+    category: 'legend',
+    isFeatured: true,
     yearsPerformed: [2026],
-    origin: 'Nkandla, KwaZulu-Natal',
-    soundDescription: 'Fast-paced, aggressive acoustic guitar picking combined with rapid praise poetry (izibongo) and energetic dance.',
-    knownFor: 'Rapid-fire poetic izibongo and dynamic stage movements',
-    bio: 'Limit Ivelamumva Nala from KwaNxamalala in Nkandla is renowned for electric stage energy. He delivers rapid-fire praise poetry while dancing with lightning speed, turning every festival performance into a showcase of traditional warrior spirit and musical endurance.',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80'
+    soundDescription: 'Modern, punchy acoustic guitar melodies with smooth vocal phrasing and catchy contemporary hooks.',
+    knownFor: 'Distinctive voice, Amabunjwa sound, and relatable modern Zulu lyricism',
+    bio: 'Phumlani Khumalo, popularly known as Imfezemnyama, is celebrated across South Africa as a prolific composer and studio head of Amabunjwa Records. Famous for bringing a crisp modern feel to traditional Maskandi guitar lines, he unites with the festival legends on the grand stage.',
+    image: 'https://images.unsplash.com/photo-1520523839898-5071282543e1?auto=format&fit=crop&w=1000&q=80',
+    socials: {
+      facebook: 'https://facebook.com'
+    }
   },
   {
-    id: 'falabo',
-    name: 'Falabo',
-    category: 'main_lineup',
-    isFeatured: false,
+    id: 'bahubhe',
+    name: 'Bahubhe',
+    category: 'legend',
+    isFeatured: true,
     yearsPerformed: [2026],
-    origin: 'Nquthu, KwaZulu-Natal',
-    soundDescription: 'Ultra-fast, delicate thumb-and-finger picking technique ("Magic Fingers") with warm, classic acoustic grooves.',
-    knownFor: 'Masterful guitar picking dexterity earning him the nickname "Magic Fingers"',
-    bio: 'Nicknamed "Magic Fingers" by Maskandi devotees, Falabo hails from Nquthu. He is widely recognized as one of the most technically gifted guitarists in the genre, creating complex melodic patterns that sound like multiple instruments playing at once.',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80'
+    soundDescription: 'Mellow acoustic guitar runs with a rich, soothing tenor voice singing of romance and tradition.',
+    knownFor: 'Melodic lyricism, warm vocal tone, and heartfelt ballads',
+    bio: 'A respected master of the guitar, Bahubhe is known for his sweet melodic voice and romantic storytelling. His music focuses on love, respect between partners, and the timeless beauty of traditional Zulu culture, taking his place in the legendary reunion roster.',
+    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80',
+    socials: {
+      facebook: 'https://facebook.com'
+    }
   },
   {
     id: 'menzi',
@@ -272,47 +384,10 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'main_lineup',
     isFeatured: false,
     yearsPerformed: [2026],
-    origin: 'Pietermaritzburg, KwaZulu-Natal',
     soundDescription: 'Joyful, uptempo acoustic guitar progressions with uplifting choruses and infectious rhythm arrangements.',
     knownFor: 'High-energy choruses and spirited rhythm arrangements',
-    bio: 'Menzi Msawenkosi Majola was born in Pietermaritzburg and has earned a strong reputation for his energetic live band arrangements. His music carries themes of hope, resilience, and brotherhood, consistently moving stadium crowds to dance and sing along.',
+    bio: 'Menzi Msawenkosi Majola has earned a strong reputation for his energetic live band arrangements. His music carries themes of hope, resilience, and brotherhood, consistently moving stadium crowds to dance and sing along.',
     image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=80'
-  },
-  {
-    id: 'imfezi',
-    name: 'Imfezi',
-    category: 'main_lineup',
-    isFeatured: false,
-    yearsPerformed: [2026],
-    origin: 'Nquthu, KwaZulu-Natal',
-    soundDescription: 'Modern, punchy acoustic guitar melodies with smooth vocal phrasing and catchy contemporary hooks.',
-    knownFor: 'Distinctive voice, Amabunjwa sound, and relatable modern Zulu lyricism',
-    bio: 'Phumlani Khumalo, popularly known as Imfezemnyama, comes from Nquthu. As a prolific composer and studio head of Amabunjwa Records, he is famous for bringing a crisp, modern feel to traditional Maskandi guitar lines, making the genre popular among younger urban and rural generations alike.',
-    image: 'https://images.unsplash.com/photo-1520523839898-5071282543e1?auto=format&fit=crop&w=1000&q=80'
-  },
-  {
-    id: 'jaiva-zimnike',
-    name: 'Jaiva Zimnike',
-    category: 'main_lineup',
-    isFeatured: false,
-    yearsPerformed: [2026],
-    origin: 'Nquthu, KwaZulu-Natal',
-    soundDescription: 'Celebratory, up-tempo party grooves with infectious call-and-response crowd chants.',
-    knownFor: 'Festive crowd-rousing chants and signature rhythmic breakdowns',
-    bio: 'Jaiva Zimnike is celebrated for his vibrant party atmosphere and crowd control. His songs are tailored for massive festival singalongs, with driving bass notes and jubilant Zulu refrains that keep the stadium dancing.',
-    image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80'
-  },
-  {
-    id: 'bahubhe',
-    name: 'Bahubhe',
-    category: 'featured',
-    isFeatured: false,
-    yearsPerformed: [2026],
-    origin: 'Nongoma, KwaZulu-Natal',
-    soundDescription: 'Mellow acoustic guitar runs with a rich, soothing tenor voice singing of romance and tradition.',
-    knownFor: 'Melodic lyricism, warm vocal tone, and heartfelt ballads',
-    bio: 'A respected artist from Nongoma, Bahubhe is known for his sweet melodic voice and romantic storytelling. His music focuses on love, respect between partners, and the timeless beauty of traditional Zulu life.',
-    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'mzukulu',
@@ -320,10 +395,9 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'featured',
     isFeatured: false,
     yearsPerformed: [2026],
-    origin: 'Nquthu, KwaZulu-Natal',
     soundDescription: 'Poetic, acoustic-led Maskandi with contemplative melodies and rich traditional storytelling.',
     knownFor: 'Deep lyrical poetry and acoustic compositions bridging folk and modern soul',
-    bio: 'Mzukulu from Nquthu is widely admired for his sensitive songwriting and deep respect for cultural proverbs. His music explores spiritual identity, heritage, and the modern experiences of young Zulu people.',
+    bio: 'Mzukulu is widely admired for his sensitive songwriting and deep respect for cultural proverbs. His music explores spiritual identity, heritage, and the modern experiences of young Zulu people.',
     image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80'
   },
   {
@@ -332,10 +406,9 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'featured',
     isFeatured: false,
     yearsPerformed: [2026],
-    origin: 'Msinga, KwaZulu-Natal',
     soundDescription: 'Sturdy, roots-oriented acoustic guitar picking following the deep Tugela valley tradition.',
     knownFor: 'Authentic Tugela-style acoustic picking and classic Maskandi soundscapes',
-    bio: 'Carrying forward the historic picking traditions of Msinga, Mlabalaba is known for preserving the classic, unhurried acoustic sound that defines traditional Maskandi in KwaZulu-Natal.',
+    bio: 'Carrying forward the historic picking traditions, Mlabalaba is known for preserving the classic, unhurried acoustic sound that defines traditional Maskandi.',
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80'
   },
   {
@@ -344,10 +417,9 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'featured',
     isFeatured: false,
     yearsPerformed: [2026],
-    origin: 'Nquthu, KwaZulu-Natal',
     soundDescription: 'Soulful fingerstyle guitar with sincere, storytelling ballads about family and rural life.',
     knownFor: 'Rich acoustic phrasing and heartfelt traditional ballads',
-    bio: 'Saliwa is a dedicated Maskandi songwriter from Nquthu whose acoustic ballads reflect the beauty and resilience of rural communities, praised for his warm guitar tone and poetic lyrics.',
+    bio: 'Saliwa is a dedicated Maskandi songwriter whose acoustic ballads reflect the beauty and resilience of rural communities, praised for his warm guitar tone and poetic lyrics.',
     image: 'https://images.unsplash.com/photo-1520523839898-5071282543e1?auto=format&fit=crop&w=1000&q=80'
   },
   {
@@ -356,10 +428,9 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'featured',
     isFeatured: false,
     yearsPerformed: [2026],
-    origin: 'Nkandla, KwaZulu-Natal',
     soundDescription: 'Fast, high-spirited acoustic picking with rapid vocal rhythms and energetic Zulu dance breaks.',
     knownFor: 'Energetic vocal dynamics, fast rhythm guitars, and warrior-style dance interplay',
-    bio: 'A high-energy performer from Nkandla, Thwasalekhansela brings electrifying dance choreography and spirited rhythm guitar to the stage, keeping audiences engaged throughout his sets.',
+    bio: 'A high-energy performer, Thwasalekhansela brings electrifying dance choreography and spirited rhythm guitar to the stage, keeping audiences engaged throughout his sets.',
     image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80'
   },
   {
@@ -368,7 +439,6 @@ export const INITIAL_ARTISTS: Artist[] = [
     category: 'featured',
     isFeatured: false,
     yearsPerformed: [2026],
-    origin: 'KwaZulu-Natal',
     soundDescription: 'Bright, rhythmic acoustic guitar and upbeat vocal arrangements filled with joyful celebration.',
     knownFor: 'Harmonious arrangements, vibrant stage presence, and engaging live shows',
     bio: 'Cevuzile is an acclaimed Maskandi artist whose joyful, uplifting melodies celebrate Zulu cultural life. His performances are known for rich harmonies and positive, unifying messages.',
@@ -378,76 +448,58 @@ export const INITIAL_ARTISTS: Artist[] = [
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    id: 'gal-sicebi-honour-2026',
-    title: '2026 Honouree: Sicebi "Inkosi Yamagcokama" Dlamini • 2026',
-    category: 'artists',
-    year: 2026,
-    url: 'https://i.ibb.co/5hN1ymJk/1bca19808986dae7d39f89c2e3f1009c84ab7615-w700.webp',
-    caption: 'Official portrait and ceremony honouring Sicebi "Inkosi Yamagcokama" Dlamini at the 13th Annual Impucuzeko Maskandi Festival.',
-    aspect: 'wide'
-  },
-  {
-    id: 'gal-stage-1',
-    title: 'Main Stage Performance at Night • 2026',
-    category: 'artists',
-    year: 2026,
-    url: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=85',
-    caption: 'Electrifying headliner performance under stadium lights at Moses Mabhida People’s Park.',
-    aspect: 'wide'
-  },
-  {
-    id: 'gal-crowd-1',
-    title: '25,000 Maskandi Devotees in Full Voice • 2026',
+    id: 'gal-2026-05',
+    title: '25,000 Maskandi Supporters at Moses Mabhida',
     category: 'crowd',
     year: 2026,
-    url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=85',
-    caption: 'A sea of over 25,000 supporters celebrating indigenous sound and Zulu pride.',
+    url: 'https://i.ibb.co/wZwkf82r/1788653442330.jpg',
+    caption: 'The vast amphitheatre lawn filled to absolute capacity under the iconic Durban arch.',
     aspect: 'wide'
   },
   {
-    id: 'gal-train-1',
-    title: "PRASA's Isitimela Sabantu Arrival",
+    id: 'gal-2026-01',
+    title: 'Festival Stage & Vibrant Crowd Gathering',
+    category: 'artists',
+    year: 2026,
+    url: 'https://i.ibb.co/4gScB1nF/1788653558580.jpg',
+    caption: 'Dynamic stage performance at Moses Mabhida People’s Park, surrounded by thousands of passionate Maskandi followers.',
+    aspect: 'portrait'
+  },
+  {
+    id: 'gal-2026-02',
+    title: 'Zulu Cultural Regalia & Devotion',
+    category: 'crowd',
+    year: 2026,
+    url: 'https://i.ibb.co/kVYZ3fjL/1788653544953.jpg',
+    caption: 'Celebrating authentic Zulu heritage in full traditional attire, beadwork, and ceremonial headdresses.',
+    aspect: 'portrait'
+  },
+  {
+    id: 'gal-2026-04',
+    title: 'Royal Entrance & Festival Pageantry',
+    category: 'artists',
+    year: 2026,
+    url: 'https://i.ibb.co/JF2WX0RH/1788653470577.jpg',
+    caption: 'Grand stage appearance in full traditional warrior regalia commanding the audience at Impucuzeko.',
+    aspect: 'portrait'
+  },
+  {
+    id: 'gal-2026-06',
+    title: 'PRASA Isitimela Sabantu Activation',
     category: 'train',
     year: 2026,
-    url: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80',
-    caption: 'The landmark PRASA partnership provided free rail transit for festival ticket holders across the province.',
-    aspect: 'landscape'
+    url: 'https://i.ibb.co/CsX1nKHf/1788652363354.jpg',
+    caption: 'PRASA brand activation banners celebrating #IsitimelaSabantu — connecting communities across KwaZulu-Natal to Durban.',
+    aspect: 'wide'
   },
   {
-    id: 'gal-guitar-1',
-    title: 'Acoustic Mastery & Technique',
-    category: 'artists',
-    year: 2026,
-    url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80',
-    caption: 'Fastidious fingerpicking on the steel-string acoustic guitar — the undisputed heartbeat of Maskandi.',
-    aspect: 'portrait'
-  },
-  {
-    id: 'gal-attire-1',
-    title: 'Traditional Regalia & Izimbadada',
+    id: 'gal-2026-08',
+    title: 'Traditional Dance & Warrior Precision',
     category: 'crowd',
     year: 2026,
-    url: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1200&q=80',
-    caption: 'Generations arriving in magnificent hand-crafted beadwork and traditional attire.',
+    url: 'https://i.ibb.co/zWbtnzDw/1788561661417.jpg',
+    caption: 'Indlamu traditional Zulu dancing showcase demonstrating poise, cultural unity, and ancestral rhythm.',
     aspect: 'portrait'
-  },
-  {
-    id: 'gal-backstage-1',
-    title: 'Backstage Preparation & Brotherhood',
-    category: 'backstage',
-    year: 2026,
-    url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80',
-    caption: 'Acoustic tuning and quiet focus backstage before stepping onto the grand platform.',
-    aspect: 'square'
-  },
-  {
-    id: 'gal-venue-1',
-    title: 'Moses Mabhida Stadium Arch Over People’s Park',
-    category: 'venue',
-    year: 2026,
-    url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=85',
-    caption: 'The iconic arch framing the festival grounds in Durban.',
-    aspect: 'wide'
   }
 ];
 
@@ -474,7 +526,7 @@ export const EDITORIAL_STORIES: Story[] = [
     publishedDate: 'September 2026',
     author: 'Festival Archive Documentation',
     category: 'partnership',
-    coverImage: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=85',
+    coverImage: 'https://i.ibb.co/XfcLjMH4/1788653290952.jpg',
     featured: true,
     content: [
       'For the 13th edition on 29 August 2026, PRASA executed an official brand partnership with the festival, operating #IsitimelaSabantu — the People\'s Train — to provide complimentary return passenger rail transit for ticket holders.',
@@ -490,13 +542,13 @@ export const EDITORIAL_STORIES: Story[] = [
     publishedDate: 'August 2026',
     author: 'Historical Archive',
     category: 'heritage',
-    coverImage: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=85',
+    coverImage: 'https://i.ibb.co/wZwkf82r/1788653442330.jpg',
     featured: false,
     content: [
-      'In its earliest years, Impucuzeko found its voice at Durban’s historic Curries Fountain — a site steeped in the memory of mass assembly and cultural solidarity.',
-      'Yet by the 5th Annual edition in 2016, the festival had already outgrown all conventional boundaries. Devotees had begun spontaneously calling the event "The World Cup of Maskandi", a title embraced by media and fans for its sheer competitive energy, unmatched lineup density, and pride.',
+      'In its earliest years, Impucuzeko found its voice at Durban’s historic Curries Fountain — a site steeped in the memory of mass assembly, civic resilience, and cultural solidarity.',
+      'Yet by the 5th Annual edition in 2016, the festival had already outgrown all conventional boundaries. Devotees had begun spontaneously calling the event "The World Cup of Maskandi", a title embraced by national media and fans for its sheer competitive energy, unmatched lineup density, and pride.',
       'Recognizing the need for a stage worthy of this momentum, organisers made the decisive move to Moses Mabhida People’s Park. Nestled beneath the iconic arch of the stadium, the venue provided the vast lawns, acoustics, and central dignity that 25,000+ supporters deserved.',
-      'Thirteen editions later, Impucuzeko stands as a testament to the unshakeable power of indigenous African music.'
+      'Thirteen editions later, Impucuzeko stands as a testament to the unshakeable power of indigenous African music, drawing devotees from every province across South Africa and the diaspora.'
     ]
   },
   {
@@ -506,7 +558,7 @@ export const EDITORIAL_STORIES: Story[] = [
     publishedDate: 'September 2026',
     author: 'Economic Insights',
     category: 'review',
-    coverImage: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1600&q=85',
+    coverImage: 'https://i.ibb.co/kVYZ3fjL/1788653544953.jpg',
     featured: false,
     content: [
       'Beyond its unmatched musical lineup, Impucuzeko has consistently served as an economic engine for small and micro businesses throughout Durban and greater KwaZulu-Natal.',
@@ -536,24 +588,22 @@ export const FESTIVAL_PROMOTERS = [
 
 export const FESTIVAL_INFLUENCERS = [
   {
-    name: 'Name Surname',
-    role: 'Journalist',
-    note: 'Print & digital coverage'
+    name: 'Mtembayizile Mbatha',
+    role: 'Maskandi Journalist',
+    image: 'https://i.ibb.co/QWXcYck/1788740284851.jpg',
+    category: 'Journalist'
   },
   {
-    name: 'Name Surname',
-    role: 'Broadcaster',
-    note: 'Radio broadcast'
-  },
-  {
-    name: 'Name Surname',
+    name: 'Mashudula',
     role: 'Influencer',
-    note: 'Social media campaign'
+    image: 'https://i.ibb.co/cKd9N5PM/1788740201447.jpg',
+    category: 'Influencer'
   },
   {
-    name: 'Name Surname',
-    role: 'Videographer',
-    note: 'Festival documentary'
+    name: 'Yenzi Ndimande',
+    role: 'Influencer',
+    image: 'https://i.ibb.co/q3ptfnK1/1788739991981.jpg',
+    category: 'Influencer'
   }
 ];
 
@@ -581,6 +631,54 @@ export const VERIFIED_PARTNERS: Partner[] = [
     category: 'Official Broadcast & Media Coverage',
     description: "SABC's isiZulu-language radio station, broadcasting live commentary, backstage interviews, and musical coverage across KwaZulu-Natal and nationally.",
     role: 'Broadcast Partner'
+  }
+];
+
+export const PARTNER_LOGOS: PartnerLogo[] = [
+  {
+    id: 'prasa',
+    name: 'PRASA Passenger Rail Agency of South Africa',
+    url: 'https://i.ibb.co/20nh9gFN/Prasa-logo-svg.png'
+  },
+  {
+    id: 'partner-2',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/H12TSck/254086-removebg-preview.png'
+  },
+  {
+    id: 'partner-3',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/QvGMt614/254081-removebg-preview-1.png'
+  },
+  {
+    id: 'partner-4',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/ns7MfxTM/254090-removebg-preview.png'
+  },
+  {
+    id: 'partner-5',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/rGCvhKtw/254088-removebg-preview.png'
+  },
+  {
+    id: 'partner-6',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/JFqV6tZH/254087-removebg-preview.png'
+  },
+  {
+    id: 'ukhozi',
+    name: 'Ukhozi FM',
+    url: 'https://i.ibb.co/RkqK83r8/Ukhozi-FM-2013-Logo.gif'
+  },
+  {
+    id: 'partner-8',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/3mFcGvwB/254076-removebg-preview.png'
+  },
+  {
+    id: 'partner-9',
+    name: 'Official Partner',
+    url: 'https://i.ibb.co/hJdJBKdX/254075-removebg-preview.png'
   }
 ];
 

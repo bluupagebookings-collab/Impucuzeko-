@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { TicketModal } from './components/TicketModal';
-import { ArtistModal } from './components/ArtistModal';
 import { OrganiserCMSModal } from './components/OrganiserCMSModal';
 import { HomeView } from './views/HomeView';
 import { Archive2026View } from './views/Archive2026View';
@@ -54,26 +53,63 @@ export default function App() {
 
   // Artists repository
   const [artists, setArtists] = useState<Artist[]>(() => {
-    const saved = localStorage.getItem('impucuzeko_artists_v2');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error(e);
+    try {
+      const saved = localStorage.getItem('impucuzeko_artists_v7');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const jaiva = parsed.find((a: Artist) => a.id === 'jaiva-zimnike');
+          const gatsheni = parsed.find((a: Artist) => a.id === 'gatsheni');
+          const dumakahle = parsed.find((a: Artist) => a.id === 'dumakahle');
+          const mdumazi = parsed.find((a: Artist) => a.id === 'mdumazi');
+          const imfezi = parsed.find((a: Artist) => a.id === 'imfezi');
+          const shwi = parsed.find((a: Artist) => a.id === 'shwi-nomtekhala');
+          if (
+            !jaiva ||
+            !gatsheni ||
+            !dumakahle ||
+            !mdumazi ||
+            !imfezi ||
+            !shwi ||
+            jaiva.image.includes('unsplash') ||
+            gatsheni.image.includes('unsplash') ||
+            dumakahle.image.includes('unsplash') ||
+            shwi.image.includes('unsplash') ||
+            !shwi.image.includes('1788652291389') ||
+            mdumazi.category !== 'legend' ||
+            imfezi.category !== 'legend'
+          ) {
+            return INITIAL_ARTISTS;
+          }
+          return parsed;
+        }
       }
+    } catch (e) {
+      console.error(e);
     }
     return INITIAL_ARTISTS;
   });
 
   // Gallery repository
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>(() => {
-    const saved = localStorage.getItem('impucuzeko_gallery_v2');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error(e);
+    try {
+      const saved = localStorage.getItem('impucuzeko_gallery_v5');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (
+          Array.isArray(parsed) &&
+          parsed.length > 0 &&
+          !parsed.some((img: GalleryImage) =>
+            img.url?.includes('unsplash') ||
+            img.url?.includes('XfcLjMH4') ||
+            img.url?.includes('LDw1Pfk4')
+          )
+        ) {
+          return parsed;
+        }
       }
+    } catch (e) {
+      console.error(e);
     }
     return GALLERY_IMAGES;
   });
@@ -92,9 +128,9 @@ export default function App() {
 
   // Active View router
   const [currentView, setCurrentView] = useState<string>('home');
+  const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
 
   // Modals
-  const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
   const [isTicketModalOpen, setIsTicketModalOpen] = useState<boolean>(false);
   const [isCMSModalOpen, setIsCMSModalOpen] = useState<boolean>(false);
 
@@ -108,11 +144,11 @@ export default function App() {
   }, [historicalEditions]);
 
   useEffect(() => {
-    localStorage.setItem('impucuzeko_artists_v2', JSON.stringify(artists));
+    localStorage.setItem('impucuzeko_artists_v7', JSON.stringify(artists));
   }, [artists]);
 
   useEffect(() => {
-    localStorage.setItem('impucuzeko_gallery_v2', JSON.stringify(galleryImages));
+    localStorage.setItem('impucuzeko_gallery_v5', JSON.stringify(galleryImages));
   }, [galleryImages]);
 
   useEffect(() => {
@@ -149,9 +185,21 @@ export default function App() {
   // Reset to verified 2026 archive
   const handleResetDefaults = () => {
     localStorage.removeItem('impucuzeko_current_festival');
+    localStorage.removeItem('impucuzeko_current_festival_v2');
     localStorage.removeItem('impucuzeko_historical_editions');
+    localStorage.removeItem('impucuzeko_historical_editions_v2');
     localStorage.removeItem('impucuzeko_artists');
+    localStorage.removeItem('impucuzeko_artists_v2');
+    localStorage.removeItem('impucuzeko_artists_v3');
+    localStorage.removeItem('impucuzeko_artists_v4');
+    localStorage.removeItem('impucuzeko_artists_v5');
+    localStorage.removeItem('impucuzeko_artists_v6');
+    localStorage.removeItem('impucuzeko_artists_v7');
     localStorage.removeItem('impucuzeko_gallery');
+    localStorage.removeItem('impucuzeko_gallery_v2');
+    localStorage.removeItem('impucuzeko_gallery_v3');
+    localStorage.removeItem('impucuzeko_gallery_v4');
+    localStorage.removeItem('impucuzeko_gallery_v5');
     localStorage.removeItem('impucuzeko_vendor_applications_open');
     setCurrentFestival(INITIAL_CURRENT_FESTIVAL);
     setHistoricalEditions(HISTORICAL_EDITIONS);
@@ -160,7 +208,12 @@ export default function App() {
     setVendorApplicationsOpen(false);
   };
 
-  const navigateTo = (view: string) => {
+  const navigateTo = (view: string, storyId?: string) => {
+    if (view !== 'stories') {
+      setSelectedStoryId(null);
+    } else if (storyId) {
+      setSelectedStoryId(storyId);
+    }
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -188,8 +241,11 @@ export default function App() {
             partners={partners}
             onNavigate={navigateTo}
             onOpenTickets={() => setIsTicketModalOpen(true)}
-            onSelectArtist={(artist) => setSelectedArtist(artist)}
-            onSelectStory={() => navigateTo('stories')}
+            onSelectStory={(story) => {
+              setSelectedStoryId(story.id);
+              setCurrentView('stories');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           />
         )}
 
@@ -200,7 +256,6 @@ export default function App() {
             galleryImages={galleryImages}
             stories={stories}
             partners={partners}
-            onSelectArtist={(artist) => setSelectedArtist(artist)}
             onNavigate={navigateTo}
           />
         )}
@@ -215,7 +270,6 @@ export default function App() {
         {currentView === 'artists' && (
           <ArtistsView
             artists={artists}
-            onSelectArtist={(artist) => setSelectedArtist(artist)}
           />
         )}
 
@@ -224,7 +278,15 @@ export default function App() {
         )}
 
         {currentView === 'stories' && (
-          <StoriesView stories={stories} />
+          <StoriesView
+            stories={stories}
+            selectedStoryId={selectedStoryId}
+            onSelectStory={(story) => {
+              setSelectedStoryId(story ? story.id : null);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onNavigateHome={() => navigateTo('home')}
+          />
         )}
 
         {currentView === 'information' && (
@@ -247,11 +309,6 @@ export default function App() {
       <Footer onNavigate={navigateTo} onOpenCMS={() => setIsCMSModalOpen(true)} />
 
       {/* Global Modals */}
-      <ArtistModal
-        artist={selectedArtist}
-        onClose={() => setSelectedArtist(null)}
-      />
-
       <TicketModal
         festival={currentFestival}
         isOpen={isTicketModalOpen}

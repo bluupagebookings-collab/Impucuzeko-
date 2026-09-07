@@ -21,7 +21,7 @@ interface HomeViewProps {
   partners: Partner[];
   onNavigate: (view: string) => void;
   onOpenTickets: () => void;
-  onSelectArtist: (artist: Artist) => void;
+  onSelectArtist?: (artist: Artist) => void;
   onSelectStory: (story: Story) => void;
 }
 
@@ -34,7 +34,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
   partners,
   onNavigate,
   onOpenTickets,
-  onSelectArtist,
   onSelectStory
 }) => {
   return (
@@ -67,7 +66,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 6. The 2026 Stage Masters: Artists & Performers */}
       <ArtistsSection
         artists={artists}
-        onSelectArtist={onSelectArtist}
         onViewAllArtists={() => onNavigate('artists')}
       />
 
@@ -83,15 +81,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 9. Founders, Promoters, Journalists & Influencer Appreciation */}
       <FoundersAndMediaSection />
 
-      {/* 10. Editorial Dispatches, Stories & Latest News */}
+      {/* 10. Official Partners & Patronage */}
+      <PartnersSection partners={partners} />
+
+      {/* 11. Editorial Dispatches, Stories & Latest News */}
       <StoriesSection
         stories={stories}
         onViewAllStories={() => onNavigate('stories')}
         onSelectStory={onSelectStory}
       />
-
-      {/* 11. Official Partners & Patronage */}
-      <PartnersSection partners={partners} />
     </div>
   );
 };

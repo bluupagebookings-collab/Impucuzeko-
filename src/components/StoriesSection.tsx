@@ -36,10 +36,17 @@ export const StoriesSection: React.FC<StoriesSectionProps> = ({
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -4 }}
-              onClick={() => onSelectStory ? onSelectStory(story) : onViewAllStories && onViewAllStories()}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onSelectStory) {
+                  onSelectStory(story);
+                } else if (onViewAllStories) {
+                  onViewAllStories();
+                }
+              }}
               className="cursor-pointer group space-y-4"
             >
-              <div className="aspect-[16/10] overflow-hidden bg-[#FAFAF8]">
+              <div className="aspect-[16/10] overflow-hidden bg-[#FAFAF8] border border-amber-900/15 group-hover:border-amber-900/35 transition-colors">
                 <img
                   src={story.coverImage}
                   alt={story.title}
@@ -60,7 +67,7 @@ export const StoriesSection: React.FC<StoriesSectionProps> = ({
                   {story.subtitle}
                 </p>
                 <div className="text-xs uppercase tracking-wider font-bold text-[#E36414] group-hover:underline pt-1 flex items-center gap-1">
-                  <span>Read full dispatch</span>
+                  <span>Read Article</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>

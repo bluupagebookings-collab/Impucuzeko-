@@ -61,6 +61,12 @@ export interface FestivalEdition {
   keyMoments: string[];
 }
 
+export interface PartnerLogo {
+  id: string;
+  name: string;
+  url: string;
+}
+
 export interface Partner {
   id?: string;
   name: string;
@@ -68,6 +74,7 @@ export interface Partner {
   category: 'transport' | 'media' | 'public_sector' | 'cultural' | string;
   description: string;
   logoText?: string;
+  logoUrl?: string;
   badge?: string;
 }
 

@@ -13,7 +13,7 @@ interface Archive2026ViewProps {
   galleryImages: GalleryImage[];
   stories: Story[];
   partners: Partner[];
-  onSelectArtist: (artist: Artist) => void;
+  onSelectArtist?: (artist: Artist) => void;
   onNavigate: (view: string) => void;
 }
 
@@ -22,7 +22,6 @@ export const Archive2026View: React.FC<Archive2026ViewProps> = ({
   artists,
   galleryImages,
   partners,
-  onSelectArtist
 }) => {
   const images2026 = galleryImages.filter((img) => img.year === 2026);
 
@@ -97,25 +96,21 @@ export const Archive2026View: React.FC<Archive2026ViewProps> = ({
             {artists.map((artist) => (
               <div
                 key={artist.id}
-                onClick={() => onSelectArtist(artist)}
-                className="cursor-pointer group flex flex-col"
+                className="group flex flex-col select-none"
               >
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#E7E5E4]">
                   <img
                     src={artist.image}
                     alt={artist.name}
-                    className="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover object-top filter contrast-105"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-85" />
                   <div className="absolute bottom-3 left-3 right-3 text-white">
                     <h3 className="text-sm sm:text-base font-bold tracking-tight font-display line-clamp-1">
                       {artist.name}
                     </h3>
-                    <p className="text-[11px] text-white/80 font-normal truncate mt-0.5">
-                      {artist.origin || 'KwaZulu-Natal'}
-                    </p>
                   </div>
                 </div>
               </div>
